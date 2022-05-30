@@ -10,7 +10,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FA_DhruvBakshi_C0846368_IOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="FA_dhruvbakshi_C0846368_IOS_" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -222,6 +222,15 @@
                         <color key="backgroundColor" red="0.53703594207763672" green="0.45975208282470703" blue="0.34087938070297241" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
                     <connections>
+                        <outlet property="btn1" destination="Qr1-MM-kdW" id="BQy-KB-jKu"/>
+                        <outlet property="btn2" destination="eDY-1K-stU" id="RpN-l0-6Uh"/>
+                        <outlet property="btn3" destination="X1o-ej-zTG" id="ugs-tG-s6v"/>
+                        <outlet property="btn4" destination="pc5-dV-RvL" id="her-Dr-ajz"/>
+                        <outlet property="btn5" destination="mny-U6-jml" id="hAS-rj-JRc"/>
+                        <outlet property="btn6" destination="jNt-06-RyM" id="rw9-46-lFH"/>
+                        <outlet property="btn7" destination="dDE-N1-Ujv" id="9NA-dz-3ji"/>
+                        <outlet property="btn8" destination="fNK-zt-PKF" id="GrE-GN-gTI"/>
+                        <outlet property="btn9" destination="DAF-v3-Iwp" id="rY9-ET-FIC"/>
                         <outlet property="lbl" destination="UQ4-6f-hTH" id="giP-Db-asL"/>
                         <outlet property="playAgain" destination="Ud7-Ez-KbP" id="HPg-Fw-Qgu"/>
                         <outlet property="scoreO" destination="w2F-2K-asD" id="gQp-9w-MG6"/>

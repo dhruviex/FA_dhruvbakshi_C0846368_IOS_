@@ -13,12 +13,15 @@ class ViewController: UIViewController {
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     var activePlayer  = 1 //Cross
-    var gameState = [0,0,0,0,0,0,0,0,0]
+    var gameState = [0,0,0,0,0,0,0,0,0] //Initial Phase of Game
+    //Default Values
     var win=0
     var tmp=0
     var x=0
     var y=0
     var endsender=0
+    var noOfShake=0
+    //Combinations For tic tac toe
     var winningCombinations =  [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
     var gameActive=true
     
@@ -32,6 +35,16 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var scoreX: UILabel!
     @IBOutlet weak var scoreO: UILabel!
+    
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+    @IBOutlet weak var btn5: UIButton!
+    @IBOutlet weak var btn6: UIButton!
+    @IBOutlet weak var btn7: UIButton!
+    @IBOutlet weak var btn8: UIButton!
+    @IBOutlet weak var btn9: UIButton!
     
     //Action Outlets
     @IBAction func actionBtn(_ sender: AnyObject)
@@ -118,7 +131,6 @@ class ViewController: UIViewController {
         
 }// PlayAgain UI Button Closing Brace
 
-    
     //Function of View on Load
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -215,6 +227,73 @@ class ViewController: UIViewController {
         }
     
     }
+    
+    // Shake function to Redo the Change
+    override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
+        if(motion == .motionShake && noOfShake == 1 && win==0 ){
+            print(endsender)
+            switch endsender
+            {
+            case 1:
+                print("1")
+                btn1.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            case 2:
+                print("2")
+                btn2.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            case 3:
+                print("3")
+                btn3.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            case 4:
+                print("4")
+                btn4.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            case 5:
+                print("5")
+                btn5.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            case 6:
+                print("6")
+                btn6.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            case 7:
+                print("7")
+                btn7.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            case 8:
+                print("8")
+                btn8.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            case 9:
+                print("9")
+                btn9.setImage(nil, for: .normal)
+                gameState[endsender-1]=0
+                if activePlayer == 2 {activePlayer=1}else {activePlayer=2}
+                noOfShake=1
+            default:
+                break
+            }
+        }
+    }//closing brace for shake function
+    
     
     //Functions to Store data and Fetch Data
     
