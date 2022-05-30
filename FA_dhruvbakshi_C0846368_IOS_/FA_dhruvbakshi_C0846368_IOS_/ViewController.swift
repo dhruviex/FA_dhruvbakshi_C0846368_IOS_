@@ -58,11 +58,13 @@ class ViewController: UIViewController {
             {
                sender.setImage(UIImage(named:"cross.jpg" ), for: UIControl.State.normal)
                activePlayer = 2
+               noOfShake=0
              }
            else
            {
                sender.setImage(UIImage(named: "zero.jpg"), for: UIControl.State.normal)
                activePlayer = 1
+               noOfShake=0
             }
         }
         
@@ -123,6 +125,7 @@ class ViewController: UIViewController {
         wonLabel.isHidden=true
         tmp=0
         win=0
+        noOfShake=0
         for i in 1...9
         {
             let button=view.viewWithTag(i) as! UIButton
@@ -141,6 +144,7 @@ class ViewController: UIViewController {
         scoreX.text = "0"
         scoreO.text = "0"
         win = 0
+        noOfShake=0
         fetchdata(context)
         let RswipeGesture = UISwipeGestureRecognizer(target: self, action: #selector(Swipe(_:)))
         RswipeGesture.direction = .right
@@ -229,9 +233,18 @@ class ViewController: UIViewController {
     }
     
     // Shake function to Redo the Change
+    override var canBecomeFirstResponder: Bool{return true}
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
-        if(motion == .motionShake && noOfShake == 1 && win==0 ){
+
+        if(motion == .motionShake && noOfShake == 0 && win==0 ){
+            
             print(endsender)
+            let alertController = UIAlertController(title: "Phone Shake!!", message: "↩️Undo Last move!!", preferredStyle: UIAlertController.Style.alert)
+        
+            alertController.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in alertController.dismiss(animated: true, completion: nil)
+                
+            }))
+            self.present(alertController ,animated: true , completion: nil)
             switch endsender
             {
             case 1:
@@ -310,6 +323,7 @@ class ViewController: UIViewController {
         do{
             var xData:Int
             var yData:Int
+            
             let result = try context.fetch(request)
             if result.count > 0
             {
